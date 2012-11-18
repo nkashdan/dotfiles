@@ -1,3 +1,15 @@
+[color]
+  ui = auto
+
+[user]
+  name = Alex Levy
+  email = alex.levy@alumni.tufts.edu
+
+[alias]
+  a = add -A
+
+# DO NOT EDIT BELOW THIS LINE
+
 [push]
   default = tracking
 [color]

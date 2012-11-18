@@ -3,6 +3,8 @@
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
 for name in *; do
+  [ "$name" == "LICENSE" ] && continue
+  [ "$name" == "README.md" ] && continue
   target="$HOME/.$name"
   if [ -e "$target" ]; then
     if [ ! -L "$target" ]; then
