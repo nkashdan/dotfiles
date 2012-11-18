@@ -40,6 +40,8 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'xenoterracide/html.vim'
+Bundle 'wincent/Command-T'
+Bundle 'bbommarito/vim-slim'
 
 filetype plugin indent on
 
@@ -129,3 +131,4 @@ let g:html_indent_tags = 'li\|p'
 
 " Markdown files end in .md
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.slim set filetype=slim
