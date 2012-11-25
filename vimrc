@@ -42,6 +42,9 @@ Bundle 'vim-scripts/tComment'
 Bundle 'xenoterracide/html.vim'
 Bundle 'wincent/Command-T'
 Bundle 'bbommarito/vim-slim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 
 filetype plugin indent on
 
@@ -129,6 +132,8 @@ nnoremap <Down> :echoe "Use j"<CR>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" Markdown files end in .md
+" Custom file behaviors
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.slim set filetype=slim
+au BufRead,BufNewFile *.rb compiler ruby
+
