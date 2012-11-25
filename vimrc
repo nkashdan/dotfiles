@@ -45,6 +45,7 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
