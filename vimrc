@@ -40,12 +40,12 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'xenoterracide/html.vim'
-Bundle 'wincent/Command-T'
 Bundle 'bbommarito/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'scrooloose/syntastic'
+Bundle 'wincent/Command-T'
 
 filetype plugin indent on
 
@@ -65,9 +65,12 @@ augroup vimrcEx
 augroup END
 
 " Softtabs, 2 spaces
-set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
+
+" Python-specific settings
+au BufRead,BufNewFile *.py set softtabstop=4
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
@@ -140,13 +143,13 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.slim set filetype=slim
 
 " rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 
 function! RunCurrentSpecFile()
   if InSpecFile()
-    let l:command = "s " . @% . " -f documentation"
+    let l:command = "bundle exec rspec " . @% . " -f documentation"
     call SetLastSpecCommand(l:command)
     call RunSpecs(l:command)
   endif
@@ -154,7 +157,7 @@ endfunction
 
 function! RunNearestSpec()
   if InSpecFile()
-    let l:command = "s " . @% . " -l " . line(".") . " -f documentation"
+    let l:command = "bundle exec rspec " . @% . " -l " . line(".") . " -f documentation"
     call SetLastSpecCommand(l:command)
     call RunSpecs(l:command)
   endif
