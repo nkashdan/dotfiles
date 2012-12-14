@@ -48,6 +48,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
+set encoding=utf-8
 
 augroup vimrcEx
   au!
