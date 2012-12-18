@@ -11,6 +11,9 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 
+" http://vim.wikia.com/wiki/Append_output_of_an_external_command
+command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -46,6 +49,7 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'scrooloose/syntastic'
 Bundle 'wincent/Command-T'
+Bundle 'pangloss/vim-javascript'
 
 filetype plugin indent on
 
@@ -69,8 +73,9 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" Python-specific settings
+" Language-specific settings
 au BufRead,BufNewFile *.py set softtabstop=4
+au BufRead,BufNewFile *.coffee setf coffee
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
