@@ -80,6 +80,7 @@ set expandtab
 " Language-specific settings
 au BufRead,BufNewFile *.py set softtabstop=4
 au BufRead,BufNewFile *.coffee setf coffee
+au BufRead,BufNewFile *.json setf javascript
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
