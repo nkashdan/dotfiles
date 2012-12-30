@@ -1,4 +1,5 @@
 # Search
+--type-set=js=.js,.json
 --type-set=coffee=.coffee
 --type-set=cucumber=.feature
 --type-set=haml=.haml
