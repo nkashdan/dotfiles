@@ -50,9 +50,8 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'wincent/Command-T'
 Bundle 'pangloss/vim-javascript'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on
 set encoding=utf-8
