@@ -14,12 +14,6 @@ set laststatus=2  " Always display the status line
 " http://vim.wikia.com/wiki/Append_output_of_an_external_command
 command! -nargs=* -complete=shellcmd R new | setlocal buftype=nofile bufhidden=hide noswapfile | r !<args>
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
 " Declare bundles are handled via Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -45,16 +39,23 @@ Bundle 'vim-scripts/ctags.vim'
 Bundle 'vim-scripts/greplace.vim'
 Bundle 'vim-scripts/tComment'
 Bundle 'xenoterracide/html.vim'
-Bundle 'bbommarito/vim-slim'
+Bundle 'slim-template/vim-slim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'scrooloose/syntastic'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kien/ctrlp.vim'
+Bundle 'xhr/vim-io'
 
 filetype plugin indent on
 set encoding=utf-8
+
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+endif
 
 augroup vimrcEx
   au!
@@ -77,9 +78,11 @@ set shiftwidth=2
 set expandtab
 
 " Language-specific settings
-au BufRead,BufNewFile *.py set softtabstop=4
-au BufRead,BufNewFile *.coffee setf coffee
-au BufRead,BufNewFile *.json setf javascript
+au! BufNewFile,BufRead *.slim set filetype=slim
+au! BufNewFile,BufRead *.md set filetype=markdown
+au! BufNewFile,BufRead *.py set softtabstop=4
+au! BufNewFile,BufRead *.coffee setf coffee
+au! BufNewFile,BufRead *.json setf javascript
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
@@ -144,12 +147,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-
-" Markdown files end in .md
-au BufRead,BufNewFile *.md set filetype=markdown
-
-" Slim files end in .slim
-au BufRead,BufNewFile *.slim set filetype=slim
 
 " rspec mappings
 map <Leader>r :call RunCurrentSpecFile()<CR>
